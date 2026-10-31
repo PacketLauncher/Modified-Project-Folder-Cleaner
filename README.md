@@ -23,3 +23,22 @@ Change log:
 v1.0.0.0
 October 31, 2026
 - Initial release.
+
+
+Making an EXE from the source Python scripts:
+
+* This is for developers who wish to make adjustments to the source script for generating an EXE.
+
+1. Install Python.
+
+2. From CMD, install:
+	py -m pip install tkinterdnd2 <-- drag and drop support for the program (mandatory)
+	py -m pip install pyinstaller pillow <-- for making an EXE
+	py -m pip install pillow <-- for converting the PNG icon into ICO
+
+3. To make a new icon, update/replace the Icon.png file and run "Python PNG_icon_to_ICO.py" from CMD.
+
+4. To make an EXE, either run "BuildMe.bat" or run from CMD:
+	python -m PyInstaller --onefile --windowed --clean --name "Project Modified Folder Cleaner" --icon "Icon.ico" --add-data "Icon.ico;." --collect-all tkinterdnd2 "Project_Modified_Folder_Cleaner.py"
+	
+5. Run "Build_Leftovers_CleanUp.bat" to clean up this folder after building the EXE.
